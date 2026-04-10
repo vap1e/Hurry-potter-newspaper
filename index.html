@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Moving Newspaper</title>
+  <style>
+    body {
+      background: #f5f1e8;
+      font-family: "Times New Roman", serif;
+      margin: 0;
+      padding: 20px;
+    }
 
+    .container {
+      max-width: 900px;
+      margin: auto;
+      border: 2px solid #333;
+      padding: 20px;
+      background: white;
+    }
+
+    .title {
+      font-size: 40px;
+      text-align: center;
+      border-bottom: 2px solid black;
+      margin-bottom: 20px;
+    }
+
+    .article {
+      display: flex;
+      gap: 20px;
+    }
+
+    .text {
+      flex: 1;
+    }
+
+    .media {
+      width: 300px;
+    }
+
+    video {
+      width: 100%;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="title">MAGIC NEWS</div>
+
+  <div class="article">
+    <div class="text">
+      <h2>動く新聞のテスト</h2>
+      <p>
+        ここに記事を書ける。ハリーポッターみたいに、
+        右の写真が動く。
+      </p>
+    </div>
+
+    <div class="media">
+      <video autoplay loop muted>
+        <source src="videos/sample.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
