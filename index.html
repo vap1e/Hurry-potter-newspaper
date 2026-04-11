@@ -1,72 +1,367 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moving Newspaper</title>
   <style>
+    :root {
+      --paper: #efe5d0;
+      --paper-dark: #e2d3b5;
+      --ink: #181511;
+      --line: #51473b;
+      --muted: rgba(24, 21, 17, 0.72);
+      --shadow: rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background: #f5f1e8;
-      font-family: "Times New Roman", serif;
       margin: 0;
-      padding: 20px;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.28), transparent 35%),
+        linear-gradient(180deg, #d7cfbf, #cfc6b6);
+      color: var(--ink);
+      font-family: "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", serif;
+      padding: 24px;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      border: 2px solid #333;
-      padding: 20px;
-      background: white;
+    .page {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.04)),
+        var(--paper);
+      border: 2px solid var(--line);
+      box-shadow: 0 18px 40px var(--shadow);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .title {
-      font-size: 40px;
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,0.03),
+          rgba(255,255,255,0.03) 2px,
+          transparent 2px,
+          transparent 4px
+        );
+      pointer-events: none;
+      opacity: 0.35;
+    }
+
+    .masthead {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 120px 1fr 180px;
+      gap: 16px;
+      align-items: center;
+      border: 2px solid var(--line);
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,0.14);
+    }
+
+    .masthead__date,
+    .masthead__edition {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .masthead__title {
       text-align: center;
-      border-bottom: 2px solid black;
-      margin-bottom: 20px;
+      font-size: clamp(28px, 5vw, 56px);
+      letter-spacing: 0.14em;
+      line-height: 1;
+      margin: 0;
     }
 
-    .article {
+    .grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.22fr 0.68fr 1fr;
+      grid-template-rows: 84px 220px 110px 258px 205px 88px;
+      gap: 14px;
+      grid-template-areas:
+        "lead topstrip topstrip"
+        "lead centerbox righttop"
+        "band centermini rightmid"
+        "leftlower feature feature"
+        "bottomleft mainbottom mainbottom"
+        "footer footer footer";
+    }
+
+    .block {
+      position: relative;
+      border: 2px solid var(--line);
+      border-radius: 26px;
+      padding: 14px;
+      background: rgba(255,255,255,0.12);
+      overflow: hidden;
+    }
+
+    .block::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(81, 71, 59, 0.18);
+      border-radius: 18px;
+      pointer-events: none;
+    }
+
+    .block--pill {
+      border-radius: 999px;
       display: flex;
-      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-inline: 26px;
     }
 
-    .text {
-      flex: 1;
+    .section-tag {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .headline {
+      margin: 0 0 10px;
+      font-size: clamp(20px, 2.25vw, 34px);
+      line-height: 1.08;
+    }
+
+    .subheadline {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .placeholder {
+      height: 100%;
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(81,71,59,0.32);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.3), rgba(0,0,0,0.03)),
+        var(--paper-dark);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      text-align: center;
+      padding: 16px;
+      font-size: 14px;
+      line-height: 1.7;
     }
 
     .media {
-      width: 300px;
+      width: 100%;
+      height: calc(100% - 24px);
+      min-height: 120px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid rgba(81,71,59,0.32);
+      display: block;
+      background: var(--paper-dark);
     }
 
-    video {
-      width: 100%;
-      border: 1px solid black;
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      height: calc(100% - 24px);
+    }
+
+    .mini-card {
+      border: 1px solid rgba(81,71,59,0.25);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,0.14);
+    }
+
+    .lead { grid-area: lead; }
+    .topstrip { grid-area: topstrip; }
+    .centerbox { grid-area: centerbox; }
+    .righttop { grid-area: righttop; }
+    .band { grid-area: band; }
+    .centermini { grid-area: centermini; }
+    .rightmid { grid-area: rightmid; }
+    .leftlower { grid-area: leftlower; }
+    .feature { grid-area: feature; }
+    .bottomleft { grid-area: bottomleft; }
+    .mainbottom { grid-area: mainbottom; }
+    .footer { grid-area: footer; }
+
+    .topstrip,
+    .band,
+    .footer {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .topstrip .headline,
+    .band .headline,
+    .footer .headline {
+      margin: 0;
+      font-size: clamp(18px, 2vw, 28px);
+    }
+
+    .note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .masthead {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "lead"
+          "topstrip"
+          "centerbox"
+          "righttop"
+          "band"
+          "centermini"
+          "rightmid"
+          "leftlower"
+          "feature"
+          "bottomleft"
+          "mainbottom"
+          "footer";
+      }
+
+      .block {
+        min-height: 150px;
+      }
+
+      .lead,
+      .righttop,
+      .rightmid,
+      .feature,
+      .mainbottom {
+        min-height: 280px;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
     }
   </style>
 </head>
 <body>
+  <main class="page">
+    <header class="masthead">
+      <div class="masthead__date">APRIL 2026</div>
+      <h1 class="masthead__title">MAGIC NEWS</h1>
+      <div class="masthead__edition">SPECIAL EDITION</div>
+    </header>
 
-<div class="container">
-  <div class="title">MAGIC NEWS</div>
+    <section class="grid">
+      <article class="block lead">
+        <span class="section-tag">Main Story</span>
+        <h2 class="headline">左の大きい記事エリア</h2>
+        <p class="subheadline">
+          ここは大見出しと本文を入れる場所です。手書きラフの左側の大きい縦長ボックスをベースにしています。
+          長文の記事、説明、人物紹介などに向いています。
+        </p>
+        <p class="note">文字を増やしたいときは、この中に段落を追加して使ってください。</p>
+      </article>
 
-  <div class="article">
-    <div class="text">
-      <h2>動く新聞のテスト</h2>
-      <p>
-        ここに記事を書ける。ハリーポッターみたいに、
-        右の写真が動く。
-      </p>
-    </div>
+      <article class="block block--pill topstrip">
+        <h2 class="headline">上部の横長見出しエリア</h2>
+      </article>
 
-    <div class="media">
-      <video autoplay loop muted>
-        <source src="videos/sample.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
+      <article class="block centerbox">
+        <span class="section-tag">P3</span>
+        <div class="placeholder">小さめの記事や写真を置くエリア</div>
+      </article>
 
-</div>
+      <article class="block righttop">
+        <span class="section-tag">Moving Photo</span>
+        <video class="media" autoplay muted loop playsinline controls>
+          <source src="videos/sample.mp4" type="video/mp4" />
+          お使いのブラウザは動画再生に対応していません。
+        </video>
+      </article>
 
+      <article class="block block--pill band">
+        <h2 class="headline">中央の横帯テキスト</h2>
+      </article>
+
+      <article class="block centermini">
+        <span class="section-tag">Mini</span>
+        <div class="placeholder">中央の小ブロック</div>
+      </article>
+
+      <article class="block rightmid">
+        <span class="section-tag">Feature</span>
+        <h2 class="headline">右側の中サイズ記事</h2>
+        <p class="subheadline">
+          ここはサブ記事、写真説明、短いインタビューなどに使いやすいサイズです。
+          動く写真を増やしたいなら、ここも video に変えられます。
+        </p>
+      </article>
+
+      <article class="block leftlower">
+        <span class="section-tag">Interview</span>
+        <h2 class="headline">左下の特集エリア</h2>
+        <p class="subheadline">
+          コラム、作者コメント、記事の補足説明などを入れるための枠です。
+        </p>
+      </article>
+
+      <article class="block feature">
+        <span class="section-tag">Wide Feature</span>
+        <div class="split">
+          <section class="mini-card">
+            <h3 class="headline" style="font-size: 22px;">横長の大きい特集枠</h3>
+            <p class="subheadline">中央から右へ広がる大きなエリアです。いちばん見せたい記事や写真を置くのに向いています。</p>
+          </section>
+          <section class="mini-card">
+            <div class="placeholder">ここを画像や動画エリアにしても映えます</div>
+          </section>
+        </div>
+      </article>
+
+      <article class="block bottomleft">
+        <span class="section-tag">Side Story</span>
+        <h2 class="headline">下段左の記事</h2>
+        <p class="subheadline">短めの補足記事や説明欄に使えます。</p>
+      </article>
+
+      <article class="block mainbottom">
+        <span class="section-tag">Bottom Feature</span>
+        <h2 class="headline">下段の大きい横長エリア</h2>
+        <p class="subheadline">
+          ラフの下側にある大きなボックスを再現しています。動画、まとめ記事、メインビジュアルなどに向いています。
+        </p>
+      </article>
+
+      <footer class="block block--pill footer">
+        <h2 class="headline">フッター帯 / 補足テキスト</h2>
+      </footer>
+    </section>
+  </main>
 </body>
 </html>
