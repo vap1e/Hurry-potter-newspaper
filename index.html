@@ -109,6 +109,18 @@
       padding: 14px;
       background: rgba(255,255,255,0.12);
       overflow: hidden;
+
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s ease,
+        box-shadow 0.4s ease;
+    }
+
+    .block.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .block::before {
@@ -299,7 +311,7 @@
 
       <article class="block righttop">
         <span class="section-tag">Moving Photo</span>
-        <video class="media" autoplay muted loop playsinline controls>
+        <video class="media auto-video" muted loop playsinline preload="metadata">
           <source src="videos/sample.mp4" type="video/mp4" />
           お使いのブラウザは動画再生に対応していません。
         </video>
@@ -363,5 +375,7 @@
       </footer>
     </section>
   </main>
+
+  <script src="js/animation.js"></script>
 </body>
 </html>
