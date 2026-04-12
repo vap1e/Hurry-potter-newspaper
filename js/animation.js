@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const playPromise = video.play();
           if (playPromise !== undefined) {
             playPromise.catch(() => {
-              // 自動再生が制限された場合でもエラーで止まらないようにする
+              // 自動再生制限があってもエラーで止めない
             });
           }
         } else {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     },
     {
-      threshold: 0.5,
+      threshold: 0.45,
     }
   );
 
