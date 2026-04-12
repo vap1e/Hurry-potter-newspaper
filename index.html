@@ -9,25 +9,45 @@
 <body>
   <main class="page">
     <header class="masthead">
-      <div class="masthead__meta masthead__meta--left">
-        <div>APRIL 2026</div>
-        <div>WIZARDING EDITION</div>
-      </div>
+      <div class="masthead__topline">THE WIZARD WORLD'S BEGUILING BROADSHEET OF CHOICE</div>
 
-      <div class="masthead__center">
-        <p class="masthead__sub">THE DAILY PROPHET STYLE</p>
-        <h1 class="masthead__title">MAGIC NEWS</h1>
-        <p class="masthead__sub">SPECIAL FEATURE</p>
-      </div>
+      <div class="masthead__brand">
+        <div class="masthead__crest">MN</div>
 
-      <div class="masthead__meta masthead__meta--right">
-        <div>VOL. 01</div>
-        <div>TOKYO</div>
+        <div class="masthead__title-wrap">
+          <p class="masthead__sub">THE DAILY PROPHET STYLE</p>
+          <h1 class="masthead__title">MAGIC NEWS</h1>
+          <p class="masthead__sub">SPECIAL FEATURE</p>
+        </div>
+
+        <div class="masthead__edition">
+          <div>APRIL 2026</div>
+          <div>VOL. 01</div>
+          <div>TOKYO</div>
+        </div>
       </div>
     </header>
 
-    <section class="grid">
-      <article class="block reveal lead">
+    <section class="info-row reveal">
+      <div class="info-box">APRIL 2026</div>
+      <div class="info-box">WIZARDING EDITION</div>
+      <div class="info-box">VOL. 01</div>
+      <div class="info-box">TOKYO</div>
+    </section>
+
+    <section class="exclusive-row reveal">
+      <div class="exclusive-tag">EXCLUSIVE</div>
+      <div class="exclusive-copy">
+        魔法新聞のような雰囲気を残しながら、現代的な動く紙面をつくるための特別号。
+      </div>
+    </section>
+
+    <section class="hero reveal">
+      <h2 class="hero__headline">見出し！！！</h2>
+    </section>
+
+    <section class="main-grid">
+      <article class="block reveal article-left">
         <span class="section-tag">Main Story</span>
         <h2 class="headline">左の大きい記事エリア</h2>
         <p class="subheadline">
@@ -38,16 +58,7 @@
         </p>
       </article>
 
-      <article class="block block--pill reveal topstrip">
-        <h2 class="headline">見出し！！！</h2>
-      </article>
-
-      <article class="block reveal centerbox">
-        <span class="section-tag">Column</span>
-        <div class="placeholder">小さめの記事や写真を置くエリア</div>
-      </article>
-
-      <article class="block reveal righttop">
+      <article class="block reveal photo-main">
         <span class="section-tag">Moving Photo</span>
         <video class="media auto-video" muted loop playsinline preload="metadata">
           <source src="videos/sample.mp4" type="video/mp4" />
@@ -55,59 +66,54 @@
         </video>
       </article>
 
-      <article class="block block--pill reveal band">
-        <h2 class="headline">動く写真</h2>
-      </article>
-
-      <article class="block reveal centermini">
-        <span class="section-tag">Mini</span>
-        <div class="placeholder">中央の小ブロック</div>
-      </article>
-
-      <article class="block reveal rightmid">
+      <article class="block reveal right-column">
         <span class="section-tag">Feature</span>
-        <h2 class="headline">右側の中サイズ記事</h2>
-        <p class="subheadline">
+        <h3 class="small-headline">右側の中サイズ記事</h3>
+        <p class="article-text">
           ここには短い特集や解説、補足のストーリーを置くと全体のバランスが良くなります。
           文章を少し短め
         </p>
       </article>
+    </section>
 
-      <article class="block reveal leftlower">
+    <section class="shockline reveal">
+      <div class="shockline__left">動く</div>
+      <div class="shockline__center">写真</div>
+      <div class="shockline__right">！</div>
+    </section>
+
+    <section class="lower-grid">
+      <article class="block reveal prison">
         <span class="section-tag">Interview</span>
-        <h2 class="headline">左下の特集エリア</h2>
-        <p class="subheadline">
+        <h3 class="stack-title">左下の<br>特集エリア</h3>
+        <p class="article-text">
           作者コメントや背景説明、インタビューの抜粋など
         </p>
       </article>
 
-      <article class="block reveal feature">
+      <article class="block reveal demand">
         <span class="section-tag">Wide Feature</span>
-        <div class="split">
-          <section class="mini-card">
-            <h3 class="headline feature-title">横長の大きい特集枠</h3>
-            <p class="subheadline">
-              強い見出しと短い本文を組み合わせ
-            </p>
-          </section>
-          <section class="mini-card">
-            <div class="placeholder">ここを画像</div>
-          </section>
-        </div>
+        <h3 class="lower-headline">横長の大きい特集枠</h3>
+        <p class="article-text">
+          強い見出しと短い本文を組み合わせ
+        </p>
+        <div class="inline-placeholder">ここを画像</div>
       </article>
 
-      <article class="block reveal bottomleft">
+      <article class="block reveal wonder">
         <span class="section-tag">Side Story</span>
-        <h2 class="headline">下段左の記事</h2>
-        <p class="subheadline">
+        <h3 class="small-headline">下段左の記事</h3>
+        <p class="article-text">
           関連する小さな出来事や補足記事を載せるためのスペース
         </p>
       </article>
+    </section>
 
-      <article class="block reveal mainbottom">
-        <span class="section-tag">Bottom Feature</span>
+    <section class="bottom-feature reveal">
+      <article class="block mainbottom-block">
         <div class="mainbottom__content">
           <div class="mainbottom__text">
+            <span class="section-tag">Bottom Feature</span>
             <h2 class="headline">下段の大きい横長エリア</h2>
             <p class="subheadline">
               ここにはまとめ記事や大きなビジュアル
@@ -122,11 +128,11 @@
           </div>
         </div>
       </article>
-
-      <footer class="block block--pill reveal footer">
-        <h2 class="headline">ひと</h2>
-      </footer>
     </section>
+
+    <footer class="footer reveal">
+      <div class="footer__inner">ひと</div>
+    </footer>
   </main>
 
   <script src="js/animation.js"></script>
