@@ -1,78 +1,65 @@
 :root {
   --paper: #eee3cc;
   --paper-2: #e5d5b7;
-  --paper-3: #d8c5a1;
   --ink: #211c16;
   --ink-soft: rgba(33, 28, 22, 0.78);
   --line: rgba(60, 48, 33, 0.72);
   --line-soft: rgba(60, 48, 33, 0.16);
-  --shadow: rgba(0, 0, 0, 0.12);
 }
 
+/* 背景 */
 body {
   margin: 0;
   min-height: 100vh;
   background:
     radial-gradient(circle at top left, rgba(255,255,255,0.22), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(120,90,40,0.05), transparent 30%),
     linear-gradient(180deg, #d7ccb8, #cbbfa9);
+  font-family: "Times New Roman", "Hiragino Mincho ProN", serif;
   color: var(--ink);
-  font-family: "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", serif;
   padding: 24px;
 }
 
+/* 紙 */
 .page {
   position: relative;
-  width: min(1120px, 100%);
-  margin: 0 auto;
+  width: min(1100px, 100%);
+  margin: auto;
+  padding: 22px;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.03)),
     linear-gradient(135deg, var(--paper), var(--paper-2));
   border: 1.5px solid var(--line);
-  box-shadow:
-    0 24px 44px rgba(0,0,0,0.10),
-    0 2px 0 rgba(255,255,255,0.18) inset;
-  padding: 22px;
-  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
+/* 紙の繊維 */
 .page::before {
   content: "";
   position: absolute;
   inset: 0;
+  opacity: 0.15;
   pointer-events: none;
-  opacity: 0.18;
   background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,0.035),
-      rgba(255,255,255,0.035) 1px,
-      transparent 1px,
-      transparent 3px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(90,70,40,0.015),
-      rgba(90,70,40,0.015) 1px,
-      transparent 1px,
-      transparent 4px
-    );
-  mix-blend-mode: multiply;
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 4px);
 }
 
+/* 見出し */
+.masthead__title {
+  text-align: center;
+  font-size: 52px;
+  letter-spacing: 0.15em;
+}
+
+/* ブロック */
 .block {
-  position: relative;
   border: 1.4px solid var(--line);
-  border-radius: 22px;
+  border-radius: 20px;
   padding: 18px;
   background: rgba(255,255,255,0.08);
-  overflow: hidden;
+
   opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.9s ease,
-    transform 0.9s ease,
-    box-shadow 0.5s ease;
+  transform: translateY(20px);
+  transition: 0.9s;
 }
 
 .block.is-visible {
@@ -80,23 +67,31 @@ body {
   transform: translateY(0);
 }
 
+/* 内側の枠 */
 .block::before {
   content: "";
   position: absolute;
   inset: 8px;
   border: 1px solid var(--line-soft);
-  border-radius: 16px;
-  pointer-events: none;
+  border-radius: 14px;
 }
 
+/* 文字 */
+.headline {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.subheadline {
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+/* 動画 */
 .media {
   width: 100%;
-  height: calc(100% - 24px);
-  object-fit: cover;
   border-radius: 14px;
-  border: 1px solid rgba(60, 48, 33, 0.26);
-  box-shadow:
-    0 1px 0 rgba(255,255,255,0.22) inset,
-    0 8px 18px rgba(0,0,0,0.08);
-  filter: saturate(0.9) contrast(0.96) brightness(0.98);
+  border: 1px solid rgba(60, 48, 33, 0.3);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  filter: brightness(0.95) contrast(0.95);
 }
