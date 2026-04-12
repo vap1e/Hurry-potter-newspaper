@@ -1,12 +1,13 @@
 :root {
   --paper: #eee3cc;
   --paper-2: #e4d3b3;
-  --paper-3: #d4c09a;
+  --paper-3: #d1bc93;
   --ink: #211c16;
   --ink-soft: rgba(33, 28, 22, 0.78);
   --line: rgba(60, 48, 33, 0.72);
   --line-soft: rgba(60, 48, 33, 0.16);
   --shadow: rgba(0, 0, 0, 0.12);
+  --glow: rgba(255, 255, 255, 0.10);
 }
 
 * {
@@ -29,6 +30,7 @@ body {
   padding: 28px;
 }
 
+/* 紙全体 */
 .page {
   position: relative;
   width: min(1120px, 100%);
@@ -76,6 +78,7 @@ body {
   box-shadow: inset 0 0 60px rgba(70, 52, 28, 0.05);
 }
 
+/* 上部タイトル帯 */
 .masthead {
   position: relative;
   z-index: 1;
@@ -110,6 +113,13 @@ body {
   font-size: 12px;
   letter-spacing: 0.18em;
   color: var(--ink-soft);
+  opacity: 0;
+  transform: translateY(6px);
+  animation: subReveal 1.2s ease forwards;
+}
+
+.masthead__sub:last-child {
+  animation-delay: 0.3s;
 }
 
 .masthead__title {
@@ -120,14 +130,20 @@ body {
   letter-spacing: 0.18em;
   color: var(--ink);
   text-shadow: 0 1px 0 rgba(255,255,255,0.18);
+  opacity: 0;
+  transform: scale(1.06);
+  filter: blur(3px);
+  animation: titleReveal 1.5s ease forwards;
+  animation-delay: 0.15s;
 }
 
+/* グリッド */
 .grid {
   position: relative;
   z-index: 1;
   display: grid;
   grid-template-columns: 1.22fr 0.68fr 1fr;
-  grid-template-rows: 84px 220px 110px 258px 205px 88px;
+  grid-template-rows: 84px 220px 110px 258px 220px 88px;
   gap: 14px;
   grid-template-areas:
     "lead topstrip topstrip"
@@ -138,6 +154,7 @@ body {
     "footer footer footer";
 }
 
+/* 基本ブロック */
 .block {
   position: relative;
   border: 1.4px solid var(--line);
@@ -146,22 +163,6 @@ body {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.9s ease,
-    transform 0.9s ease,
-    box-shadow 0.5s ease,
-    border-color 0.4s ease;
-}
-
-.block.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.block:hover {
-  box-shadow: 0 12px 24px rgba(0,0,0,0.06);
 }
 
 .block::before {
@@ -173,6 +174,10 @@ body {
   pointer-events: none;
 }
 
+.block:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+}
+
 .block--pill {
   border-radius: 999px;
   display: flex;
@@ -182,6 +187,25 @@ body {
   padding-inline: 26px;
 }
 
+/* スクロール演出対象 */
+.reveal {
+  opacity: 0.22;
+  transform: translateY(8px);
+  filter: blur(1px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease,
+    filter 1s ease,
+    box-shadow 0.5s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* 文字 */
 .section-tag {
   display: inline-block;
   margin-bottom: 8px;
@@ -212,6 +236,7 @@ body {
   color: var(--ink-soft);
 }
 
+/* プレースホルダー */
 .placeholder {
   width: 100%;
   height: 100%;
@@ -229,6 +254,7 @@ body {
   line-height: 1.7;
 }
 
+/* 動画 */
 .media {
   width: 100%;
   height: calc(100% - 24px);
@@ -244,6 +270,7 @@ body {
   background: rgba(255,255,255,0.10);
 }
 
+/* 中央特集 */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -262,6 +289,24 @@ body {
   font-size: 22px;
 }
 
+/* 下段大エリア */
+.mainbottom__content {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 14px;
+  align-items: start;
+  height: 100%;
+}
+
+.mainbottom__text {
+  min-width: 0;
+}
+
+.mainbottom__media {
+  min-width: 0;
+}
+
+/* 光の流れ */
 .topstrip,
 .band,
 .footer {
@@ -277,16 +322,16 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: -130%;
-  width: 52%;
+  left: -140%;
+  width: 45%;
   height: 100%;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255,255,255,0.10),
+    rgba(255,255,255,0.08),
     transparent
   );
-  animation: paperShine 9s linear infinite;
+  animation: paperShine 10s linear infinite;
   pointer-events: none;
 }
 
@@ -297,6 +342,7 @@ body {
   font-size: clamp(18px, 2vw, 28px);
 }
 
+/* 配置 */
 .lead { grid-area: lead; }
 .topstrip { grid-area: topstrip; }
 .centerbox { grid-area: centerbox; }
@@ -310,12 +356,29 @@ body {
 .mainbottom { grid-area: mainbottom; }
 .footer { grid-area: footer; }
 
+/* アニメーション */
+@keyframes titleReveal {
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes subReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes paperShine {
   to {
     left: 150%;
   }
 }
 
+/* レスポンシブ */
 @media (max-width: 900px) {
   body {
     padding: 16px;
@@ -361,7 +424,8 @@ body {
     min-height: 280px;
   }
 
-  .split {
+  .split,
+  .mainbottom__content {
     grid-template-columns: 1fr;
     height: auto;
   }
