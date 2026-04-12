@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const blocks = document.querySelectorAll(".block");
+  const revealBlocks = document.querySelectorAll(".reveal");
   const videos = document.querySelectorAll(".auto-video");
 
-  blocks.forEach((block, index) => {
+  revealBlocks.forEach((block, index) => {
     const rect = block.getBoundingClientRect();
 
-    // 最初から画面内にある要素は即表示
     if (rect.top < window.innerHeight - 40) {
       block.classList.add("is-visible");
     } else {
@@ -14,21 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const revealObserver = new IntersectionObserver(
-    (entries) => {
+    (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     },
     {
-      threshold: 0.12,
-      rootMargin: "0px 0px -30px 0px",
+      threshold: 0.08,
+      rootMargin: "0px 0px 120px 0px",
     }
   );
 
-  blocks.forEach((block) => {
+  revealBlocks.forEach((block) => {
     if (!block.classList.contains("is-visible")) {
       revealObserver.observe(block);
     }
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     },
     {
-      threshold: 0.45,
+      threshold: 0.35,
     }
   );
 
