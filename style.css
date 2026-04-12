@@ -1,1 +1,10 @@
-
+:root {
+  --paper: #eee3cc;
+  --paper-2: #e5d5b7;
+  --paper-3: #d8c5a1;
+  --ink: #211c16;
+  --ink-soft: rgba(33, 28, 22, 0.78);
+  --line: rgba(60, 48, 33, 0.72);
+  --line-soft: rgba(60, 48, 33, 0.16);
+  --shadow: rgba(0, 0, 0, 0.12);
+}
