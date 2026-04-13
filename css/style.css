@@ -429,16 +429,27 @@ body {
   }
 }
 
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+
 @media print {
+
   html, body {
     margin: 0;
     padding: 0;
   }
 
-  .page {
-    width: 210mm;
-    height: 297mm;
-    transform: scale(0.9);
-    transform-origin: top left;
+  body {
+    /* ← これが本体（印刷専用の縮小） */
+    zoom: 0.85;
   }
+
+  /* ページ分割防止 */
+  .page {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
 }
