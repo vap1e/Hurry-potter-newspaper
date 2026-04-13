@@ -1,62 +1,62 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const revealBlocks = document.querySelectorAll(".reveal");
+
+  /* 導入 */
+  const intro = document.getElementById("intro");
+
+  setTimeout(() => {
+    intro.classList.add("hidden");
+  }, 2000);
+
+  /* スクロール表示 */
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      }
+    });
+  });
+
+  reveals.forEach(el => observer.observe(el));
+
+  /* 動画再生 */
   const videos = document.querySelectorAll(".auto-video");
 
-  revealBlocks.forEach((block, index) => {
-    const rect = block.getBoundingClientRect();
-
-    if (rect.top < window.innerHeight - 40) {
-      block.classList.add("is-visible");
-    } else {
-      block.style.transitionDelay = `${index * 0.06}s`;
-    }
+  const videoObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.play();
+      } else {
+        entry.target.pause();
+      }
+    });
   });
 
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.08,
-      rootMargin: "0px 0px 120px 0px",
-    }
-  );
+  videos.forEach(v => videoObserver.observe(v));
 
-  revealBlocks.forEach((block) => {
-    if (!block.classList.contains("is-visible")) {
-      revealObserver.observe(block);
-    }
-  });
+  /* 見出し変化 */
+  const headline = document.querySelector(".hero__headline");
 
-  const videoObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const video = entry.target;
+  const texts = [
+    "見出し！！！",
+    "動く写真",
+    "魔法新聞",
+    "内容が変わる",
+    "それ本当に同じ？"
+  ];
 
-        if (entry.isIntersecting) {
-          const playPromise = video.play();
-          if (playPromise !== undefined) {
-            playPromise.catch(() => {});
-          }
-        } else {
-          video.pause();
-        }
-      });
-    },
-    {
-      threshold: 0.35,
-    }
-  );
+  let i = 0;
 
-  videos.forEach((video) => {
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    videoObserver.observe(video);
-  });
+  setInterval(() => {
+    headline.classList.add("is-changing");
+
+    setTimeout(() => {
+      i = (i + 1) % texts.length;
+      headline.textContent = texts[i];
+      headline.classList.remove("is-changing");
+    }, 500);
+
+  }, 6000);
+
 });
