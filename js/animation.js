@@ -59,4 +59,29 @@ document.addEventListener("DOMContentLoaded", () => {
     video.playsInline = true;
     videoObserver.observe(video);
   });
+});    (entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+
+        if (entry.isIntersecting) {
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {});
+          }
+        } else {
+          video.pause();
+        }
+      });
+    },
+    {
+      threshold: 0.35,
+    }
+  );
+
+  videos.forEach((video) => {
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    videoObserver.observe(video);
+  });
 });
