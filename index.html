@@ -7,133 +7,307 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <main class="page">
-    <header class="masthead">
-      <div class="masthead__topline">THE WIZARD WORLD'S BEGUILING BROADSHEET OF CHOICE</div>
+  <div class="page-stack" id="pageStack">
+    <aside class="archive-panel" id="archivePanel" aria-hidden="true">
+      <div class="archive-panel__inner">
+        <div class="archive-shell">
+          <div class="archive-frame">
+            <div class="archive-paper">
+              <header class="archive-masthead">
+                <div class="archive-masthead__top">
+                  <div class="archive-masthead__crest">DP</div>
+                  <div class="archive-masthead__title-wrap">
+                    <div class="archive-masthead__mini">THE WIZARD WORLD'S BEGUILING BROADSHEET OF CHOICE</div>
+                    <h2 class="archive-masthead__title" id="featureHeadline">THE BOY WHO LIES?</h2>
+                    <div class="archive-masthead__rule"></div>
+                  </div>
+                </div>
 
-      <div class="masthead__brand">
-        <div class="masthead__crest">MN</div>
+                <div class="archive-meta-row">
+                  <div class="archive-meta-box" id="featureDate">MAY 2026 / TOKYO</div>
+                  <div class="archive-meta-box" id="featureEdition">VOL. 02 / SPECIAL REPORT</div>
+                  <button
+                    type="button"
+                    class="archive-meta-box archive-close-button"
+                    id="archiveClose"
+                    aria-label="バックナンバーを閉じる"
+                  >
+                    BACK
+                  </button>
+                </div>
+              </header>
 
-        <div class="masthead__title-wrap">
-          <p class="masthead__sub">THE DAILY PROPHET STYLE</p>
-          <h1 class="masthead__title">MAGIC NEWS</h1>
-          <p class="masthead__sub">SPECIAL FEATURE</p>
-        </div>
+              <section class="archive-banner-row">
+                <div class="archive-banner">EXCLUSIVE</div>
+                <div class="archive-banner-text" id="featureSubhead">SPECIAL FEATURE ISSUE</div>
+              </section>
 
-        <div class="masthead__edition">
-          <div>APRIL 2026</div>
-          <div>VOL. 01</div>
-          <div>TOKYO</div>
+              <section class="archive-hero">
+                <div class="archive-hero__left">
+                  <div class="archive-dropcap">T</div>
+                  <p class="archive-lead" id="featureText">
+                    魔法新聞風のバックナンバー紙面です。大見出し、写真、縦組み風の
+                    強い装飾、太い罫線を使って、元画像のような勢いのある一面デザインにしています。
+                  </p>
+                </div>
+
+                <div class="archive-hero__visual">
+                  <div class="archive-hero__image" id="featureThumb">VOL. 02</div>
+                </div>
+              </section>
+
+              <section class="archive-scream">
+                <div class="archive-scream__left">THERE</div>
+                <div class="archive-scream__center">IS NOTHING!</div>
+                <div class="archive-scream__right">!</div>
+              </section>
+
+              <section class="archive-columns">
+                <article class="archive-story archive-story--vertical">
+                  <div class="archive-story__tag">SECURITY REPORT</div>
+                  <h3 class="archive-story__headline archive-story__headline--vertical">THE HIGH SECURITY WIZARD PRISON BLUNDER</h3>
+                  <p class="archive-story__text">
+                    ここには強い見出しの縦長記事を置きます。元画像の左下のような、
+                    黒く太い文字が支配する紙面を意識した補助エリアです。
+                  </p>
+                </article>
+
+                <article class="archive-story archive-story--main">
+                  <div class="archive-story__tag">PAGES 4/5</div>
+                  <h3 class="archive-story__headline">GHOST'S DEMAND HOUSING BENEFITS</h3>
+                  <p class="archive-story__text">
+                    中央には通常の新聞本文っぽいブロックを複数段で配置します。長めの本文が入っても
+                    雰囲気が壊れにくいよう、文字サイズと行間は少し詰め気味にしています。
+                  </p>
+                  <p class="archive-story__text">
+                    ここは概要文、補足、引用、あるいは簡単な導入文に使えます。バックナンバーを追加するときは、
+                    この見出しや本文、上部の大見出しだけ差し替えていけばok
+                  </p>
+                </article>
+
+                <article class="archive-story archive-story--side">
+                  <div class="archive-story__tag">SPECIAL REPORT</div>
+                  <h3 class="archive-story__headline">SPELLBOUND UNBOUND: ANOTHER TRAGIC SCANDAL HITS WITCH WONDER</h3>
+                  <p class="archive-story__text">
+                    右下はやや細い記事欄です。短い話題、関連トピック、補足説明を置く用のスペースにしています。
+                  </p>
+                </article>
+              </section>
+
+              <section class="archive-bottomline">
+                <div>e.limus 4</div>
+                <div>jobs 7</div>
+                <div>health 8</div>
+                <div>ministry affairs 10</div>
+                <div>sports 12</div>
+              </section>
+
+              <section class="archive-issues">
+                <button
+                  type="button"
+                  class="archive-issue is-current"
+                  data-date="APRIL 2026 / TOKYO"
+                  data-edition="VOL. 01 / SPECIAL FEATURE ISSUE"
+                  data-headline="MAGIC NEWS"
+                  data-subhead="SPECIAL FEATURE ISSUE"
+                  data-text="第一号のバックナンバーです。特別号として制作された紙面で、現代的なレイアウトを組み合わせた構成になっています。"
+                  data-thumb="VOL. 01"
+                >
+                  VOL. 01
+                </button>
+
+                <button
+                  type="button"
+                  class="archive-issue"
+                  data-date="MAY 2026 / TOKYO"
+                  data-edition="VOL. 02 / SPECIAL REPORT"
+                  data-headline="THE BOY WHO LIES?"
+                  data-subhead="EXCLUSIVE / FRONT PAGE FEATURE"
+                  data-text="あばばばあびゃー。"
+                  data-thumb="VOL. 02"
+                >
+                  VOL. 02
+                </button>
+
+                <button
+                  type="button"
+                  class="archive-issue"
+                  data-date="JUNE 2026 / TOKYO"
+                  data-edition="VOL. 03 / CASTLE IN THE MIST"
+                  data-headline="CASTLE IN THE MIST"
+                  data-subhead="SPECIAL FEATURE / DEEP FOG REPORT"
+                  data-text="もちもちもちもち"
+                  data-thumb="VOL. 03"
+                >
+                  VOL. 03
+                </button>
+
+                <button
+                  type="button"
+                  class="archive-issue"
+                  data-date="JULY 2026 / TOKYO"
+                  data-edition="VOL. 04 / COMING SOON"
+                  data-headline="COMING SOON"
+                  data-subhead="NEXT ISSUE / PREVIEW"
+                  data-text="次号用の仮紙面です。。"
+                  data-thumb="VOL. 04"
+                >
+                  VOL. 04
+                </button>
+              </section>
+            </div>
+          </div>
         </div>
       </div>
-    </header>
+    </aside>
 
-    <section class="info-row reveal">
-      <div class="info-box">APRIL 2026</div>
-      <div class="info-box">WIZARDING EDITION</div>
-      <div class="info-box">VOL. 01</div>
-      <div class="info-box">TOKYO</div>
-    </section>
+    <main class="page" id="newsPage">
+      <button
+        type="button"
+        class="page-return-tab"
+        id="pageReturnTab"
+        aria-label="元の紙面に戻る"
+      >
+        BACK
+      </button>
 
-    <section class="exclusive-row reveal">
-      <div class="exclusive-tag">EXCLUSIVE</div>
-      <div class="exclusive-copy">
-        魔法新聞のような雰囲気を残しながら、現代的な動く紙面をつくるための特別号。
-      </div>
-    </section>
+      <header class="masthead">
+        <div class="masthead__topline">THE WIZARD WORLD'S BEGUILING BROADSHEET OF CHOICE</div>
 
-    <section class="hero reveal">
-      <h2 class="hero__headline">見出し！！！</h2>
-    </section>
+        <div class="masthead__brand">
+          <div class="masthead__crest">MN</div>
 
-    <section class="main-grid">
-      <article class="block reveal article-left">
-        <span class="section-tag">Main Story</span>
-        <h2 class="headline">左の大きい記事エリア</h2>
-        <p class="subheadline">
-          ここはメインニュースや人物紹介、物語の中心になる内容を入れるための大きな縦長エリアです。
-        </p>
-        <p class="note">
-          文章は少し静かめ
-        </p>
-      </article>
-
-      <article class="block reveal photo-main">
-        <span class="section-tag">Moving Photo</span>
-        <video class="media auto-video" muted loop playsinline preload="metadata">
-          <source src="videos/sample.mp4" type="video/mp4" />
-          お使いのブラウザは動画再生に対応していません。
-        </video>
-      </article>
-
-      <article class="block reveal right-column">
-        <span class="section-tag">Feature</span>
-        <h3 class="small-headline">右側の中サイズ記事</h3>
-        <p class="article-text">
-          ここには短い特集や解説、補足のストーリーを置くと全体のバランスが良くなります。
-          文章を少し短め
-        </p>
-      </article>
-    </section>
-
-    <section class="shockline reveal">
-      <div class="shockline__left">動く</div>
-      <div class="shockline__center">写真</div>
-      <div class="shockline__right">！</div>
-    </section>
-
-    <section class="lower-grid">
-      <article class="block reveal prison">
-        <span class="section-tag">Interview</span>
-        <h3 class="stack-title">左下の<br>特集エリア</h3>
-        <p class="article-text">
-          作者コメントや背景説明、インタビューの抜粋など
-        </p>
-      </article>
-
-      <article class="block reveal demand">
-        <span class="section-tag">Wide Feature</span>
-        <h3 class="lower-headline">横長の大きい特集枠</h3>
-        <p class="article-text">
-          強い見出しと短い本文を組み合わせ
-        </p>
-        <div class="inline-placeholder">ここを画像</div>
-      </article>
-
-      <article class="block reveal wonder">
-        <span class="section-tag">Side Story</span>
-        <h3 class="small-headline">下段左の記事</h3>
-        <p class="article-text">
-          関連する小さな出来事や補足記事を載せるためのスペース
-        </p>
-      </article>
-    </section>
-
-    <section class="bottom-feature reveal">
-      <article class="block mainbottom-block">
-        <div class="mainbottom__content">
-          <div class="mainbottom__text">
-            <span class="section-tag">Bottom Feature</span>
-            <h2 class="headline">下段の大きい横長エリア</h2>
-            <p class="subheadline">
-              ここにはまとめ記事や大きなビジュアル
-            </p>
+          <div class="masthead__title-wrap">
+            <p class="masthead__sub">THE DAILY PROPHET STYLE</p>
+            <h1 class="masthead__title">MAGIC NEWS</h1>
+            <p class="masthead__sub">SPECIAL FEATURE</p>
           </div>
 
-          <div class="mainbottom__media">
-            <video class="media auto-video" muted loop playsinline preload="metadata">
-              <source src="videos/sample2.mp4" type="video/mp4" />
-              お使いのブラウザは動画再生に対応していません。
-            </video>
+          <div class="masthead__edition">
+            <div>APRIL 2026</div>
+            <div>VOL. 01</div>
+            <div>TOKYO</div>
           </div>
         </div>
-      </article>
-    </section>
+      </header>
 
-    <footer class="footer reveal">
-      <div class="footer__inner">ひと</div>
-    </footer>
-  </main>
+      <section class="info-row reveal">
+        <div class="info-box">APRIL 2026</div>
+        <div class="info-box">WIZARDING EDITION</div>
+
+        <button
+          type="button"
+          class="info-box info-box--button"
+          id="archiveTrigger"
+          aria-expanded="false"
+          aria-controls="archivePanel"
+        >
+          VOL. 01
+        </button>
+
+        <div class="info-box">TOKYO</div>
+      </section>
+
+      <section class="exclusive-row reveal">
+        <div class="exclusive-tag">EXCLUSIVE</div>
+        <div class="exclusive-copy">
+          注意をひくヘッダー！！！！！
+        </div>
+      </section>
+
+      <section class="hero reveal">
+        <h2 class="hero__headline">見出し！！！</h2>
+      </section>
+
+      <section class="main-grid">
+        <article class="block reveal article-left">
+          <span class="section-tag">Main Story</span>
+          <h2 class="headline">左の大きい記事エリア</h2>
+          <p class="subheadline">
+            ここはメインニュースや人物紹介、物語の中心になる内容を入れるための大きな縦長エリアです。
+          </p>
+          <p class="note">
+            文章は少し静かめ
+          </p>
+        </article>
+
+        <article class="block reveal photo-main">
+          <span class="section-tag">Moving Photo</span>
+          <video class="media auto-video" muted loop playsinline preload="metadata">
+            <source src="videos/sample.mp4" type="video/mp4" />
+            お使いのブラウザは動画再生に対応していません。
+          </video>
+        </article>
+
+        <article class="block reveal right-column">
+          <span class="section-tag">Feature</span>
+          <h3 class="small-headline">右側の中サイズ記事</h3>
+          <p class="article-text">
+            ここには短い特集や解説、補足のストーリーを置くと全体のバランスが良くなります。
+            文章を少し短め
+          </p>
+        </article>
+      </section>
+
+      <section class="shockline reveal">
+        <div class="shockline__left">動く</div>
+        <div class="shockline__center">写真</div>
+        <div class="shockline__right">！</div>
+      </section>
+
+      <section class="lower-grid">
+        <article class="block reveal prison">
+          <span class="section-tag">Interview</span>
+          <h3 class="stack-title">左下の<br>特集エリア</h3>
+          <p class="article-text">
+            作者コメントや背景説明、インタビューの抜粋など
+          </p>
+        </article>
+
+        <article class="block reveal demand">
+          <span class="section-tag">Wide Feature</span>
+          <h3 class="lower-headline">横長の大きい特集枠</h3>
+          <p class="article-text">
+            強い見出しと短い本文を組み合わせ
+          </p>
+          <div class="inline-placeholder">ここを画像</div>
+        </article>
+
+        <article class="block reveal wonder">
+          <span class="section-tag">Side Story</span>
+          <h3 class="small-headline">下段左の記事</h3>
+          <p class="article-text">
+            関連する小さな出来事や補足記事を載せるためのスペース
+          </p>
+        </article>
+      </section>
+
+      <section class="bottom-feature reveal">
+        <article class="block mainbottom-block">
+          <div class="mainbottom__content">
+            <div class="mainbottom__text">
+              <span class="section-tag">Bottom Feature</span>
+              <h2 class="headline">下段の大きい横長エリア</h2>
+              <p class="subheadline">
+                ここにはまとめ記事や大きなビジュアル
+              </p>
+            </div>
+
+            <div class="mainbottom__media">
+              <video class="media auto-video" muted loop playsinline preload="metadata">
+                <source src="videos/sample2.mp4" type="video/mp4" />
+                お使いのブラウザは動画再生に対応していません。
+              </video>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer reveal">
+        <div class="footer__inner">ひと</div>
+      </footer>
+    </main>
+  </div>
 
   <script src="js/animation.js"></script>
 </body>
