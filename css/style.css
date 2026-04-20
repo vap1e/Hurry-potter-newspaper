@@ -925,3 +925,263 @@ body {
     font-size: 48px;
   }
 }
+
+@media (max-width: 900px) {
+  body {
+    padding: 10px;
+  }
+
+  .page-stack {
+    width: 100%;
+  }
+
+  .archive-panel {
+    inset: 0;
+    padding: 8px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .archive-panel__inner,
+  .archive-shell,
+  .archive-frame {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .archive-frame {
+    padding: 8px;
+  }
+
+  .archive-paper {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .archive-masthead__top,
+  .archive-meta-row,
+  .archive-banner-row,
+  .archive-hero,
+  .archive-columns,
+  .masthead__brand,
+  .info-row,
+  .exclusive-row,
+  .main-grid,
+  .lower-grid,
+  .shockline,
+  .mainbottom__content {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-masthead__top {
+    gap: 10px;
+  }
+
+  .archive-masthead__crest {
+    min-height: 54px;
+    font-size: 20px;
+  }
+
+  .archive-masthead__mini {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+
+  .archive-masthead__title {
+    font-size: clamp(30px, 12vw, 56px);
+    line-height: 0.9;
+    word-break: break-word;
+  }
+
+  .archive-meta-row {
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .archive-meta-box {
+    min-height: 42px;
+    font-size: 10px;
+    padding: 6px 8px;
+    line-height: 1.4;
+  }
+
+  .archive-banner {
+    font-size: 18px;
+    padding: 8px 10px;
+  }
+
+  .archive-banner-text {
+    font-size: 11px;
+    padding-bottom: 6px;
+  }
+
+  .archive-hero {
+    gap: 10px;
+  }
+
+  .archive-hero__left {
+    border-right: 0;
+    padding-right: 0;
+  }
+
+  .archive-dropcap {
+    font-size: 56px;
+    margin-bottom: 4px;
+  }
+
+  .archive-lead {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .archive-hero__image {
+    min-height: 180px;
+    font-size: 22px;
+  }
+
+  .archive-scream {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 8px 0;
+  }
+
+  .archive-scream__left,
+  .archive-scream__center,
+  .archive-scream__right {
+    text-align: center;
+    line-height: 0.95;
+  }
+
+  .archive-scream__left {
+    font-size: 34px;
+  }
+
+  .archive-scream__center {
+    font-size: clamp(28px, 9vw, 44px);
+  }
+
+  .archive-scream__right {
+    font-size: 40px;
+  }
+
+  .archive-columns {
+    gap: 10px;
+  }
+
+  .archive-story {
+    padding: 10px;
+  }
+
+  .archive-story__headline {
+    font-size: clamp(22px, 8vw, 34px);
+    line-height: 1;
+  }
+
+  .archive-story__headline--vertical {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    height: auto;
+    margin: 0 0 8px;
+    font-size: clamp(22px, 8vw, 34px);
+    line-height: 1;
+  }
+
+  .archive-story__text {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .archive-bottomline {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .archive-issues {
+    gap: 6px;
+    padding-top: 8px;
+  }
+
+  .archive-issue {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 0;
+    font-size: 10px;
+    padding: 8px 6px;
+    text-align: center;
+  }
+
+  .page-stack.is-open .page {
+    transform: translateX(-96%);
+  }
+
+  .page-return-tab {
+    width: 42px;
+    height: 96px;
+    right: 4px;
+    top: 10px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero__headline {
+    font-size: clamp(34px, 12vw, 64px);
+  }
+
+  .photo-main {
+    min-height: auto;
+  }
+
+  .media {
+    min-height: 220px;
+  }
+
+  .shockline__left,
+  .shockline__center,
+  .shockline__right {
+    text-align: center;
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 520px) {
+  .archive-panel {
+    padding: 6px;
+  }
+
+  .archive-frame {
+    padding: 6px;
+  }
+
+  .archive-paper {
+    padding: 8px;
+  }
+
+  .archive-masthead__title {
+    font-size: clamp(24px, 11vw, 40px);
+  }
+
+  .archive-hero__image {
+    min-height: 150px;
+    font-size: 18px;
+  }
+
+  .archive-bottomline {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-issue {
+    flex-basis: 100%;
+  }
+
+  .page-stack.is-open .page {
+    transform: translateX(-98%);
+  }
+
+  .page-return-tab {
+    width: 36px;
+    height: 88px;
+    font-size: 10px;
+  }
+}
