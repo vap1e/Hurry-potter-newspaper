@@ -1185,3 +1185,52 @@ body {
     font-size: 10px;
   }
 }
+
+.photo-main .media,
+.mainbottom__media .media {
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(0.97) translateY(-8px);
+  transform-origin: center top;
+}
+
+.masthead__title {
+  line-height: 0.85;
+  text-align: center;
+}
+
+.headline-top {
+  display: block;
+  font-size: 0.45em;
+  letter-spacing: 0.12em;
+}
+
+.headline-main {
+  display: block;
+  font-size: 1.25em;
+  letter-spacing: 0.04em;
+}
+
+.masthead__title,
+.archive-masthead__title {
+  line-height: 1;
+  text-align: center;
+  margin: 6px 0;
+}
+
+.masthead__title .headline-top,
+.archive-masthead__title .headline-top {
+  display: block;
+  font-size: 0.45em;
+  letter-spacing: 0.12em;
+  line-height: 0.9;
+  margin-bottom: 0.02em;
+}
+
+.masthead__title .headline-main,
+.archive-masthead__title .headline-main {
+  display: block;
+  font-size: 1.25em;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+}
