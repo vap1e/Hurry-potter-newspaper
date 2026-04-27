@@ -1513,6 +1513,74 @@
   }
 
 }
+
+@media (max-width: 760px) {
+
+  .toolbar {
+
+    position: static;
+
+    display: block;
+
+    padding: 8px 0 12px;
+
+    margin-bottom: 16px;
+
+    background: transparent;
+
+    border-bottom: 1px solid var(--line-soft);
+
+    backdrop-filter: none;
+
+  }
+
+  .filters {
+
+    display: flex;
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    gap: 8px;
+
+    padding: 0 0 8px;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+
+  }
+
+  .filters::-webkit-scrollbar {
+
+    display: none;
+
+  }
+
+  .filters .tool-button {
+
+    flex: 0 0 auto;
+
+    min-height: 36px;
+
+    padding: 9px 13px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.14em;
+
+  }
+
+  .search-input,
+
+  .modes {
+
+    display: none;
+
+  }
+
+}
   </style>
 </head>
 <body>
