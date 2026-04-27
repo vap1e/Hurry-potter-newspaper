@@ -129,11 +129,25 @@
       color: var(--ink);
     }
 
+    .ticker-marquee {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+    }
+
     .ticker-track {
       display: flex;
-      gap: 42px;
+      width: max-content;
       white-space: nowrap;
       animation: tickerMove 34s linear infinite;
+      will-change: transform;
+    }
+
+    .ticker-group {
+      display: flex;
+      gap: 42px;
+      padding-right: 42px;
+      flex: 0 0 auto;
     }
 
     @keyframes tickerMove {
@@ -1018,11 +1032,24 @@
 
   .ticker-track {
 
-    gap: 32px;
-
     animation-duration: 42s;
 
   }
+
+  .ticker-marquee {
+
+    flex: 1;
+
+  }
+
+  .ticker-group {
+
+    gap: 32px;
+
+    padding-right: 32px;
+
+  }
+
 
   .hero {
 
@@ -1590,13 +1617,25 @@
 <main class="site-shell">
 <div class="ticker">
 <span class="ticker-label">TODAY'S NOTE</span>
+<div class="ticker-marquee" aria-hidden="true">
 <div class="ticker-track">
+<div class="ticker-group">
 <span>大正大学 二年次</span>
-        <span>SELECT A PAPER / READ THE STORY / SCRAP YOUR FAVORITES</span>
-        <span>地域課題実践論</span>
-        <span>高橋若木先生監修</span>
-        <span>SELECT A PAPER / READ THE STORY / SCRAP YOUR FAVORITES</span>
-        <span>Created by 105</span>
+<span>SELECT A PAPER / READ THE STORY / SCRAP YOUR FAVORITES</span>
+<span>地域課題実践論</span>
+<span>高橋若木先生監修</span>
+<span>SELECT A PAPER / READ THE STORY / SCRAP YOUR FAVORITES</span>
+<span>Created by 105</span>
+</div>
+<div class="ticker-group">
+<span>大正大学 二年次</span>
+<span>SELECT A PAPER / READ THE STORY / SCRAP YOUR FAVORITES</span>
+<span>地域課題実践論</span>
+<span>高橋若木先生監修</span>
+<span>SELECT A PAPER / READ THE STORY / SCRAP YOUR FAVORITES</span>
+<span>Created by 105</span>
+</div>
+</div>
 </div>
 </div>
 <section class="hero">
