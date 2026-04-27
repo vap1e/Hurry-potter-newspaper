@@ -690,6 +690,182 @@
       margin-bottom: 8px;
     }
 
+    .front-page-pick {
+      position: relative;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr auto;
+      gap: 22px;
+      align-items: center;
+      margin: 0 0 28px;
+      padding: 18px 20px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(250,247,239,0.56), rgba(244,238,227,0.26)),
+        rgba(244,238,227,0.38);
+      box-shadow: 0 14px 38px rgba(26, 22, 18, 0.08);
+      overflow: hidden;
+    }
+
+    .front-page-pick::before {
+      content: "";
+      position: absolute;
+      inset: 10px 0;
+      border-top: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      pointer-events: none;
+    }
+
+    .front-kicker {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .front-title {
+      margin-top: 8px;
+      font-size: clamp(28px, 4vw, 54px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      color: var(--ink);
+    }
+
+    .front-copy {
+      color: var(--ink-soft);
+      font-size: 13px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .front-meta {
+      display: block;
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .front-open {
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+    }
+
+    .scrapbook {
+      margin-top: 54px;
+      padding: clamp(24px, 4vw, 48px);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.32), transparent 40%),
+        rgba(244,238,227,0.48);
+      box-shadow: 0 22px 62px rgba(26, 22, 18, 0.13);
+    }
+
+    .scrapbook-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+      margin-bottom: 24px;
+      color: var(--ink-soft);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .scrapbook-title {
+      margin: 0 0 16px;
+      font-size: clamp(38px, 6vw, 86px);
+      line-height: 0.9;
+      font-weight: 400;
+      letter-spacing: -0.06em;
+    }
+
+    .scrapbook-lead {
+      max-width: 680px;
+      margin: 0 0 24px;
+      color: var(--ink-soft);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .scrapbook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .scrap-note {
+      position: relative;
+      min-height: 150px;
+      padding: 18px;
+      border: 1px solid var(--line-soft);
+      background: var(--paper-light);
+      box-shadow: 0 16px 34px rgba(26,22,18,0.13);
+      cursor: pointer;
+      transform: rotate(-0.3deg);
+      font-family: inherit;
+      text-align: left;
+      color: inherit;
+      transition: transform .25s var(--ease), box-shadow .25s ease;
+    }
+
+    .scrap-note:nth-child(even) { transform: rotate(0.45deg); }
+    .scrap-note:hover { transform: translateY(-4px) rotate(0deg); box-shadow: 0 22px 48px rgba(26,22,18,0.18); }
+
+    .scrap-note::before {
+      content: "";
+      position: absolute;
+      width: 54px;
+      height: 18px;
+      top: -9px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      background: rgba(232,225,211,0.78);
+      border: 1px solid rgba(37,35,31,0.08);
+      box-shadow: 0 3px 8px rgba(26,22,18,0.08);
+    }
+
+    .scrap-note small {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--ink-soft);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .scrap-note strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-size: 28px;
+      line-height: 0.98;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    .scrap-note span {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .scrapbook-empty {
+      padding: 34px 20px;
+      text-align: center;
+      border: 1px dashed var(--line);
+      color: var(--ink-soft);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      background: rgba(250,247,239,0.28);
+    }
 
 
     .editor-desk {
@@ -1608,6 +1784,34 @@
   }
 
 }
+
+    @media (max-width: 860px) {
+      .front-page-pick {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 16px;
+      }
+
+      .front-open {
+        width: fit-content;
+      }
+
+      .scrapbook {
+        margin-top: 38px;
+        padding: 24px 18px;
+      }
+
+      .scrapbook-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .scrapbook-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1645,6 +1849,15 @@
 </div>
 <p class="hero-copy">大正大学地域創生学科がおくる、日常の新聞。</p>
 </section>
+
+<section class="front-page-pick" aria-label="本日の一面">
+<div>
+<div class="front-kicker">TODAY'S FRONT PAGE</div>
+<div class="front-title" id="frontTitle">Title</div>
+</div>
+<p class="front-copy"><span id="frontSubtitle">今日おすすめの紙面を選んでいます。</span><span class="front-meta" id="frontMeta">VOL. 01</span></p>
+<button class="tool-button front-open" id="frontOpenButton" type="button">Open Front Page</button>
+</section>
 <section aria-label="新聞ギャラリー操作" class="toolbar">
 <div class="filters">
 <button class="tool-button active" data-filter="all">All</button>
@@ -1673,6 +1886,17 @@
 <article class="paper-card" data-aside="あとがきの分量" data-body="まとめやあとがきに向いた記事です。開いた時は300〜500字くらいが綺麗です。長く語りすぎるより、制作を通して感じたこと、読者に持ち帰ってほしいことを静かに置くと、サイト全体の余韻が残ります。" data-category="journal" data-date="Afterword" data-id="title06" data-image="https://images.unsplash.com/photo-1518733057094-95b53143d2a7?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" data-issue="No. 06" data-subtitle="最後に読ませたいまとめ・あとがき" data-title="Title 6"><button class="scrap-button" type="button">SCRAP</button><div class="paper-topline"><span>AFTERWORD</span><span>No. 06</span></div><h2 class="paper-title">Title 6</h2><h3 class="paper-subtitle">最後に読ませたいまとめ・あとがき</h3><div class="main-photo" style="background-image:url('https://images.unsplash.com/photo-1518733057094-95b53143d2a7?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')"></div><div class="article-grid"><p>最後に読ませる記事。カードでは結論を書きすぎず、開いて読みたくなる余白を残すのがおすすめです。</p><div class="mini-photo" style="background-image:url('https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&amp;fit=crop&amp;w=900&amp;q=80')"></div></div><span class="read-label">OPEN PAPER</span><div class="paper-bottomline"><span>TITLE 6</span><span>PAGE 06</span></div></article>
 </section>
 <div class="empty-state" id="emptyState">NO PAPERS FOUND / 条件に合う紙面がありません</div>
+
+<section class="scrapbook" id="scrapbook">
+<div class="scrapbook-header">
+<span>SCRAPBOOK / SAVED PAPERS</span>
+<span id="scrapbookCount">0 CLIPS</span>
+</div>
+<h2 class="scrapbook-title">Scrapbook</h2>
+<p class="scrapbook-lead">SCRAPした紙面だけが、切り抜きのようにここへ集まります。気になる記事を保存していくと、自分だけの小さな新聞束になります。</p>
+<div class="scrapbook-grid" id="scrapbookGrid"></div>
+<div class="scrapbook-empty" id="scrapbookEmpty">NO SCRAPS YET / 気になる紙面の SCRAP を押すとここに集まります</div>
+</section>
 <section class="editor-desk" id="aboutUs">
 <div class="desk-header">
 <span>FINAL PAGE / ABOUT US</span>
@@ -1780,8 +2004,18 @@
     const searchInput = document.getElementById('searchInput');
     const emptyState = document.getElementById('emptyState');
     const resultText = document.getElementById('resultText');
+    const tickerLabel = document.querySelector('.ticker-label');
+    const tickerGroups = [...document.querySelectorAll('.ticker-group')];
+    const frontTitle = document.getElementById('frontTitle');
+    const frontSubtitle = document.getElementById('frontSubtitle');
+    const frontMeta = document.getElementById('frontMeta');
+    const frontOpenButton = document.getElementById('frontOpenButton');
+    const scrapbookGrid = document.getElementById('scrapbookGrid');
+    const scrapbookEmpty = document.getElementById('scrapbookEmpty');
+    const scrapbookCount = document.getElementById('scrapbookCount');
 
     let currentFilter = 'all';
+    let frontPageCard = null;
     const saved = new Set(JSON.parse(localStorage.getItem('quiet-days-scraps') || '[]'));
 
     function syncScrapButtons() {
@@ -1795,6 +2029,47 @@
 
     function saveScraps() {
       localStorage.setItem('quiet-days-scraps', JSON.stringify([...saved]));
+    }
+
+    function setTicker(label, items) {
+      if (!tickerLabel || tickerGroups.length === 0) return;
+      tickerLabel.textContent = label;
+      const html = items.map(item => `<span>${item}</span>`).join('');
+      tickerGroups.forEach(group => { group.innerHTML = html; });
+    }
+
+    function updateTickerForState(count) {
+      const activeFilter = currentFilter.toUpperCase();
+      const base = currentFilter === 'all'
+        ? ['大正大学 二年次', 'SELECT A PAPER / READ THE STORY / SCRAP YOUR FAVORITES', '地域課題実践論', '高橋若木先生監修', 'Created by 105']
+        : [`${activeFilter} PAPERS ONLY`, `${count} PAPERS IN VIEW`, 'READ THE STORY / SCRAP YOUR FAVORITES', 'Forest of Ten Hues', 'VOL. 01 / 2026'];
+      setTicker(currentFilter === 'all' ? "TODAY'S NOTE" : 'FILTER NOTE', base);
+    }
+
+    function setupFrontPage() {
+      if (!frontTitle || cards.length === 0) return;
+      const today = new Date();
+      const daySeed = Math.floor(today.getTime() / 86400000);
+      frontPageCard = cards[daySeed % cards.length];
+      frontTitle.textContent = frontPageCard.dataset.title;
+      frontSubtitle.textContent = frontPageCard.dataset.subtitle;
+      frontMeta.textContent = `${frontPageCard.dataset.date} / ${frontPageCard.dataset.issue}`;
+    }
+
+    function renderScrapbook() {
+      if (!scrapbookGrid) return;
+      const savedCards = cards.filter(card => saved.has(card.dataset.id));
+      scrapbookGrid.innerHTML = '';
+      scrapbookCount.textContent = `${savedCards.length} CLIPS`;
+      scrapbookEmpty.style.display = savedCards.length ? 'none' : 'block';
+      savedCards.forEach(card => {
+        const note = document.createElement('button');
+        note.type = 'button';
+        note.className = 'scrap-note';
+        note.innerHTML = `<small>${card.dataset.category} / ${card.dataset.issue}</small><strong>${card.dataset.title}</strong><span>${card.dataset.subtitle}</span>`;
+        note.addEventListener('click', () => openModal(card));
+        scrapbookGrid.appendChild(note);
+      });
     }
 
     function applyFilters() {
@@ -1812,6 +2087,7 @@
 
       emptyState.classList.toggle('show', count === 0);
       resultText.textContent = count === 0 ? 'NO PAPERS FOUND' : `${count} PAPERS / SELECT TO READ`;
+      updateTickerForState(count);
     }
 
     function openModal(card) {
@@ -1849,6 +2125,7 @@
         saved.has(id) ? saved.delete(id) : saved.add(id);
         saveScraps();
         syncScrapButtons();
+        renderScrapbook();
         applyFilters();
       });
     });
@@ -1873,11 +2150,14 @@
     });
 
     searchInput.addEventListener('input', applyFilters);
+    if (frontOpenButton) frontOpenButton.addEventListener('click', () => { if (frontPageCard) openModal(frontPageCard); });
     closeButton.addEventListener('click', closeModal);
     modal.addEventListener('click', event => { if (event.target === modal) closeModal(); });
     window.addEventListener('keydown', event => { if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
 
+    setupFrontPage();
     syncScrapButtons();
+    renderScrapbook();
     applyFilters();
 
     const aboutCards = [...document.querySelectorAll('.about-card')];
