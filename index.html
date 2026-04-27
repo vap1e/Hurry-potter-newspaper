@@ -987,6 +987,532 @@
       .modal-aside { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 24px; position: static; }
       .related-mini { grid-template-columns: 1fr; }
     }
+
+    @media (max-width: 860px) {
+
+  body {
+
+    overflow-x: hidden;
+
+  }
+
+  .site-shell {
+
+    width: min(100% - 24px, 680px);
+
+    padding-top: 18px;
+
+    padding-bottom: 48px;
+
+  }
+
+  .ticker {
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+
+    font-size: 10px;
+
+  }
+
+  .ticker-track {
+
+    gap: 32px;
+
+    animation-duration: 42s;
+
+  }
+
+  .hero {
+
+    grid-template-columns: 1fr;
+
+    min-height: 360px;
+
+    padding: 58px 0 34px;
+
+    gap: 24px;
+
+  }
+
+  .hero::before {
+
+    background-position: center;
+
+    opacity: 0.68;
+
+  }
+
+  h1 {
+
+    font-size: clamp(48px, 17vw, 88px);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.06em;
+
+  }
+
+  .hero-copy {
+
+    writing-mode: horizontal-tb;
+
+    justify-self: start;
+
+    max-height: none;
+
+    max-width: 100%;
+
+    font-size: 13px;
+
+    line-height: 1.85;
+
+  }
+
+  .toolbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 35;
+
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    padding: 12px 0;
+
+    margin-bottom: 18px;
+
+  }
+
+  .filters,
+
+  .modes {
+
+    display: flex;
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    gap: 8px;
+
+    padding-bottom: 4px;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+
+  }
+
+  .filters::-webkit-scrollbar,
+
+  .modes::-webkit-scrollbar {
+
+    display: none;
+
+  }
+
+  .tool-button {
+
+    flex: 0 0 auto;
+
+    min-height: 40px;
+
+    padding: 10px 13px;
+
+    font-size: 10px;
+
+  }
+
+  .search-input {
+
+    width: 100%;
+
+    min-height: 42px;
+
+    font-size: 16px;
+
+  }
+
+  .gallery-note {
+
+    align-items: flex-start;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+  }
+
+  .gallery {
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+  }
+
+  .paper-card,
+
+  .paper-card.featured {
+
+    grid-column: auto;
+
+    display: block;
+
+    min-height: auto;
+
+    padding: 18px;
+
+  }
+
+  .paper-card:hover {
+
+    transform: none;
+
+  }
+
+  .paper-card.featured .paper-title,
+
+  .paper-title {
+
+    font-size: clamp(38px, 13vw, 58px);
+
+    line-height: 0.95;
+
+  }
+
+  .paper-subtitle {
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+  }
+
+  .main-photo,
+
+  .paper-card.featured .main-photo {
+
+    height: 230px;
+
+    margin: 16px 0;
+
+  }
+
+  .article-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+
+    margin-bottom: 48px;
+
+  }
+
+  .mini-photo {
+
+    min-height: 150px;
+
+  }
+
+  .side-list div {
+
+    grid-template-columns: 36px 1fr;
+
+  }
+
+  .paper-bottomline {
+
+    position: static;
+
+    margin-top: 20px;
+
+  }
+
+  .read-label {
+
+    display: none;
+
+  }
+
+  .scrap-button {
+
+    top: 48px;
+
+    right: 16px;
+
+    font-size: 9px;
+
+    padding: 7px 8px;
+
+  }
+
+  .modal {
+
+    padding: 12px;
+
+    align-items: start;
+
+  }
+
+  .modal-paper {
+
+    width: 100%;
+
+    max-height: 92vh;
+
+    padding: 22px 18px;
+
+  }
+
+  .close-button {
+
+    top: 12px;
+
+    right: 12px;
+
+    width: 42px;
+
+    height: 42px;
+
+    font-size: 24px;
+
+    z-index: 120;
+
+  }
+
+  .modal-header {
+
+    grid-template-columns: 1fr;
+
+    gap: 6px;
+
+    font-size: 10px;
+
+    padding-right: 46px;
+
+  }
+
+  .modal-title {
+
+    font-size: clamp(44px, 15vw, 78px);
+
+    line-height: 0.92;
+
+  }
+
+  .modal-lead {
+
+    font-size: clamp(21px, 7vw, 34px);
+
+    line-height: 1.35;
+
+  }
+
+  .modal-layout {
+
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+
+  }
+
+  .modal-photo {
+
+    min-height: 260px;
+
+  }
+
+  .modal-columns {
+
+    column-count: 1;
+
+    font-size: 13px;
+
+  }
+
+  .modal-aside {
+
+    position: static;
+
+    border-left: 0;
+
+    padding-left: 0;
+
+    border-top: 1px solid var(--line);
+
+    padding-top: 22px;
+
+  }
+
+  .related-mini {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .editor-desk {
+
+    margin-top: 38px;
+
+    padding: 24px 18px;
+
+  }
+
+  .desk-header {
+
+    grid-template-columns: 1fr;
+
+    gap: 6px;
+
+    font-size: 10px;
+
+  }
+
+  .desk-title {
+
+    font-size: clamp(44px, 15vw, 78px);
+
+    line-height: 0.9;
+
+  }
+
+  .desk-lead {
+
+    font-size: 13px;
+
+    line-height: 1.85;
+
+  }
+
+  .desk-layout {
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+  }
+
+  .desk-form,
+
+  .desk-paper {
+
+    min-height: auto;
+
+    padding: 18px;
+
+  }
+
+  .preview-title {
+
+    font-size: clamp(38px, 13vw, 64px);
+
+  }
+
+  .preview-body {
+
+    column-count: 1;
+
+    font-size: 13px;
+
+  }
+
+  .about-card-name {
+
+    font-size: 21px;
+
+  }
+
+  .about-card-top {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+  }
+
+  .about-detail-meta {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+@media (max-width: 430px) {
+
+  .site-shell {
+
+    width: min(100% - 18px, 430px);
+
+  }
+
+  .hero {
+
+    min-height: 330px;
+
+    padding-top: 48px;
+
+  }
+
+  h1 {
+
+    font-size: clamp(42px, 18vw, 70px);
+
+  }
+
+  .paper-card,
+
+  .paper-card.featured {
+
+    padding: 16px;
+
+  }
+
+  .paper-topline,
+
+  .paper-bottomline {
+
+    font-size: 9px;
+
+    letter-spacing: 0.12em;
+
+  }
+
+  .main-photo,
+
+  .paper-card.featured .main-photo {
+
+    height: 200px;
+
+  }
+
+  .modal-paper {
+
+    padding: 20px 15px;
+
+  }
+
+  .modal-photo {
+
+    min-height: 220px;
+
+  }
+
+  .editor-desk {
+
+    padding: 22px 15px;
+
+  }
+
+}
   </style>
 </head>
 <body>
